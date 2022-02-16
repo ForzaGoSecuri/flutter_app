@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:forza_go_securi/models/brew.dart';
 import 'package:provider/provider.dart';
+import 'package:forza_go_securi/home/brew_tile.dart';
 
 class BrewList extends StatefulWidget {
   @override
@@ -24,6 +25,11 @@ class _BrewListState extends State<BrewList> {
       });
     }*/
 
-    return Container();
+    return ListView.builder(
+      itemCount: brews.length,
+      itemBuilder: (context, index) {
+        return BrewTile(brew: brews[index]);
+      },
+    );
   }
 }
