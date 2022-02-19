@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:forza_go_securi/models/brew.dart';
+import 'package:forza_go_securi/models/utilisateur.dart';
 
 class DatabaseService {
-  final String uid;
-  DatabaseService({required this.uid});
-
+  final String? uid;
+  DatabaseService({this.uid});
   // collection reference
   final CollectionReference brewCollection =
       FirebaseFirestore.instance.collection('brews');
@@ -25,8 +25,22 @@ class DatabaseService {
     }).toList();
   }
 
+  // user data from snapshot
+  UserData _userDataFromSnapshot(DocumentSnapshot snapshot) {
+    return UserData(
+        uid: uid ?? '',
+        name: snapshot.get('name') ?? '',
+        sugars: snapshot.get('sugars') ?? '0',
+        strength: snapshot.get('strength') ?? 100);
+  }
+
   // get brews stream
   Stream<List<Brew>> get brews {
     return brewCollection.snapshots().map(_brewListFromSnapshot);
+  }
+
+  // get user doc stream
+  Stream<UserData> get userData {
+    return brewCollection.doc(uid).snapshots().map(_userDataFromSnapshot);
   }
 }
