@@ -4,6 +4,11 @@ import 'package:forza_go_securi/services/auth.dart';
 import 'package:forza_go_securi/shared/constants.dart';
 import 'package:forza_go_securi/shared/loading.dart';
 
+/* Sing in method : a valid email (with @) and a 6 charachers long passwor
+are required to sign in into user account.
+A check is done to verify if user is registered in database
+*/
+
 class SignIn extends StatefulWidget {
   final Function toggleView;
   SignIn({required this.toggleView});
@@ -47,7 +52,8 @@ class _SignInState extends State<SignIn> {
                 key: _formKey,
                 child: Column(
                   children: <Widget>[
-                    SizedBox(height: 20.0), // Email input
+                    SizedBox(height: 20.0),
+                    // Email input with validation : email is required
                     TextFormField(
                       decoration:
                           textInputDecoration.copyWith(hintText: 'Email'),
@@ -57,7 +63,8 @@ class _SignInState extends State<SignIn> {
                         setState(() => email = val);
                       },
                     ),
-                    SizedBox(height: 20.0), // Password input
+                    SizedBox(height: 20.0),
+                    // Password input with validation : 6 characters min required
                     TextFormField(
                       decoration:
                           textInputDecoration.copyWith(hintText: 'Password'),
@@ -71,7 +78,6 @@ class _SignInState extends State<SignIn> {
                     ),
                     SizedBox(height: 20.0), // Sign up Button
                     ElevatedButton(
-                      //color: Colors.red,
                       onPressed: () async {
                         if (_formKey.currentState!.validate()) {
                           setState(() => loading = true);
@@ -80,6 +86,7 @@ class _SignInState extends State<SignIn> {
                           if (result == null) {
                             setState(() {
                               error =
+                                  // show alert message if credentials not registered
                                   'Could not sign in with those credentials';
                               loading = false;
                             });

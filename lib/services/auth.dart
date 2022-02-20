@@ -1,6 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:forza_go_securi/models/utilisateur.dart';
 import 'package:forza_go_securi/services/database.dart';
+
+/* Connection to Firebase database to create user account,
+* save their hashed passwords and data */
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -28,7 +32,7 @@ class AuthService {
     }
   }
 
-  // register with email & password
+  // register a new user with email & password
   Future registerWithEmailAndPassword(String email, String password) async {
     try {
       UserCredential result = await _auth.createUserWithEmailAndPassword(
@@ -45,12 +49,15 @@ class AuthService {
     }
   }
 
-  // sign out
+  // sign out : calling the auth package to sign out user
+  // TODO : fix the sign out error
   Future signOut() async {
     try {
       return await _auth.signOut();
     } catch (e) {
-      print(e.toString());
+      if (kDebugMode) {
+        print(e.toString());
+      }
       return null;
     }
   }

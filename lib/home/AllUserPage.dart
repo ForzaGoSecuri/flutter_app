@@ -4,6 +4,8 @@ import 'package:forza_go_securi/home/OneUserPage.dart';
 import 'package:flutter/material.dart';
 import 'package:forza_go_securi/shared/app_bar.dart';
 
+/* Page that hsow all users registered and their detailed data */
+
 const dGreen = Color(0xFF54D3C2);
 var numberOfEmployees = 10;
 
@@ -43,6 +45,8 @@ class AllUserPage extends StatelessWidget {
 }
 
 class HomePageUsers extends StatelessWidget {
+  const HomePageUsers({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,6 +78,8 @@ class HomePageUsers extends StatelessWidget {
         ));
   }
 }
+
+// Table with each registered user and their data
 
 Widget createTable(context) {
   List<TableRow> rows = [];

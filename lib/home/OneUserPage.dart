@@ -2,8 +2,12 @@
 
 import 'package:forza_go_securi/home/AllUserPage.dart';
 import 'package:flutter/material.dart';
-import 'package:forza_go_securi/home/materials_kit.dart';
 import 'package:forza_go_securi/shared/app_bar.dart';
+
+/*
+Detailed view page of a user. The page show the name, id card, and list of
+available tools a user can have
+ */
 
 var backColorNOK = Colors.red;
 var backColorOK = Colors.teal;

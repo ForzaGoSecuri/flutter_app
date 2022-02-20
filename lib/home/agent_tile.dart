@@ -2,8 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:forza_go_securi/models/equipment.dart';
-import 'package:forza_go_securi/home/AllUserPage.dart';
 import 'package:forza_go_securi/home/OneUserPage.dart';
+
+/*
+The presentation card that introduce each user on the Home Page,
+the card show the name of the agent, the number of tools they have,
+and later a profile picture.
+ */
 
 class AgentTile extends StatelessWidget {
   final Equipment tool;

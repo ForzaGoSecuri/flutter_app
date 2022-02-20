@@ -1,3 +1,7 @@
+/*class for user instances, called in french 'Utilisateur' to avoid confusion with
+the latest flutter version, in whitch FirebaseUser has been replaced by the
+confusing keyword 'User'
+*/
 class Utilisateur {
   final String? uid;
 

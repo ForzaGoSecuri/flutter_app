@@ -10,11 +10,14 @@ import 'package:forza_go_securi/home/equipment_list.dart';
 import 'package:forza_go_securi/home/AllUserPage.dart';
 import 'package:forza_go_securi/home/OneUserPage.dart';
 
+/* */
+
 class Home extends StatelessWidget {
   final AuthService _auth = AuthService();
 
   @override
   Widget build(BuildContext context) {
+    // Container widget that appear at the bottom of page to show user settings
     void _showSettingsPanel() {
       showModalBottomSheet(
           context: context,
@@ -27,10 +30,11 @@ class Home extends StatelessWidget {
     }
 
     return StreamProvider<List<Equipment>>.value(
-        value: DatabaseService(uid: '').brews,
+        // Stream to show connected user data and allow them to update their equipment
+        value: DatabaseService(uid: '').tools,
         initialData: [],
         child: Scaffold(
-          backgroundColor: Colors.brown[50],
+          backgroundColor: Colors.teal[50],
           appBar: AppBar(
             title: Text('Go Securi Home'),
             backgroundColor: Colors.teal,
@@ -43,6 +47,8 @@ class Home extends StatelessWidget {
                   await _auth.signOut();
                 },
               ),
+              /* icon Settings open up the Container with settings form,
+              allowing user to update their data (name, equipment)*/
               TextButton.icon(
                 onPressed: () => _showSettingsPanel(),
                 icon: Icon(Icons.settings),
@@ -50,6 +56,7 @@ class Home extends StatelessWidget {
               )
             ],
           ),
+          // body return all tools available with link to the equipment_list file
           body: ToolList(),
         ));
   }

@@ -3,6 +3,11 @@ import 'package:forza_go_securi/models/equipment.dart';
 import 'package:provider/provider.dart';
 import 'package:forza_go_securi/home/agent_tile.dart';
 
+/* class to create the user cards on the Home page.
+For every new user to register, their card will appear with their name and
+the number of tools they have in their equipment
+ */
+
 class ToolList extends StatefulWidget {
   @override
   _ToolListState createState() => _ToolListState();

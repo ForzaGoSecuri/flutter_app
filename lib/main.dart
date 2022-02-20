@@ -1,4 +1,17 @@
-// ignore_for_file: prefer_const_constructors
+/*
+Welcome on the Go Securi mobile application,
+created by Mickaëlle Aubrée and Florian Giangrande, members of the team
+Forza Go Securi, along with their loyal comrades Guillaume Lechevallier, and Nicolas Marette.
+This first version of the Go Securi app allow the company to register new security
+agents in their crew, see and update their agents data.
+
+In this Main file, the connection to the Firebase Database is initialized,
+and the user is can access the panel to register or login.
+
+We hope that our application will help you monitoring your security crew,
+and we commit, so to say, to develop and improve this app again in the future
+in order to answer the needs our customers can face.
+ */
 
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -16,7 +29,6 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return StreamProvider<Utilisateur?>.value(
@@ -30,3 +42,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// ignore_for_file: prefer_const_constructors

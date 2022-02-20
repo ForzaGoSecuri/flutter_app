@@ -19,8 +19,7 @@ class DatabaseService {
   List<Equipment> _toolListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return Equipment(
-          name: doc.get('name') ?? '',
-          tools: doc.get('tools') ?? '0');
+          name: doc.get('name') ?? '', tools: doc.get('tools') ?? '0');
     }).toList();
   }
 
@@ -33,7 +32,7 @@ class DatabaseService {
   }
 
   // get brews stream
-  Stream<List<Equipment>> get brews {
+  Stream<List<Equipment>> get tools {
     return toolCollection.snapshots().map(_toolListFromSnapshot);
   }
 

@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:forza_go_securi/authenticate/register.dart';
 import 'package:forza_go_securi/authenticate/sign_in.dart';
 
+/* User can chose to sign in, if they already have an account,
+* a new user will choose first the Register button.
+* Authenticate determine if user need to register or sign in*/
+
 class Authenticate extends StatefulWidget {
   const Authenticate({Key? key}) : super(key: key);
 

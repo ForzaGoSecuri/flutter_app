@@ -5,6 +5,10 @@ import 'package:forza_go_securi/services/auth.dart';
 import 'package:forza_go_securi/shared/constants.dart';
 import 'package:forza_go_securi/shared/loading.dart';
 
+/*
+Register method connect to the Firebase database to register a new user .
+ */
+
 class Register extends StatefulWidget {
   final Function toggleView;
   Register({required this.toggleView});

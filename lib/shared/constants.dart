@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+/*
+styling constants to clear input text decorations
+ */
+
 const textInputDecoration = InputDecoration(
   fillColor: Colors.white,
   filled: true,

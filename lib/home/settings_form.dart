@@ -7,6 +7,12 @@ import 'package:forza_go_securi/shared/constants.dart';
 import 'package:forza_go_securi/shared/loading.dart';
 import 'package:provider/provider.dart';
 
+/* Form used to update user name and equipment.
+A first text input allow to update the username,
+an second field is a drop down list with all equipments available,
+when a user select an item in the list, it will update their personnal equipment
+ */
+
 class SettingsForm extends StatefulWidget {
   @override
   _State createState() => _State();
@@ -17,8 +23,8 @@ class _State extends State<SettingsForm> {
   final List<String> tools = ['0', '1', '2', '3', '4'];
 
   // form values
-  late String _currentName;
-  late String _currentTools;
+  late String? _currentName;
+  late String? _currentTools;
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +44,8 @@ class _State extends State<SettingsForm> {
                   style: TextStyle(fontSize: 18.0),
                 ),
                 SizedBox(height: 20.0),
+
+                // text input to update the user name
                 TextFormField(
                   initialValue: userData!.name,
                   decoration: textInputDecoration,
@@ -46,7 +54,7 @@ class _State extends State<SettingsForm> {
                   onChanged: (val) => setState(() => _currentName = val),
                 ),
                 SizedBox(height: 20.0),
-                //dropdown
+                //dropdown list with the number of tools a user can have
                 DropdownButtonFormField<String>(
                   decoration: textInputDecoration,
                   value: userData.usertools,
@@ -58,19 +66,7 @@ class _State extends State<SettingsForm> {
                   }).toList(),
                   onChanged: (val) => setState(() => _currentTools = val!),
                 ),
-                //slider
-                /* Slider(
-                  value: (_currentStrength ?? userData.strength).toDouble(),
-                  activeColor:
-                      Colors.brown[_currentStrength ?? userData.strength],
-                  inactiveColor:
-                      Colors.brown[_currentStrength ?? userData.strength],
-                  min: 100,
-                  max: 900,
-                  divisions: 8,
-                  onChanged: (val) =>
-                      setState(() => _currentStrength = val.round()),
-                ),*/
+                // button to confirm update and redirect user to Home page
                 ElevatedButton(
                     child: Text(
                       'Update',
@@ -78,15 +74,17 @@ class _State extends State<SettingsForm> {
                     ),
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        await DatabaseService(uid: user.uid).updateUserData(
-                            _currentTools,
-                            _currentName);
+                        await DatabaseService(uid: user.uid)
+                            .updateUserData(_currentTools!, _currentName!);
                         Navigator.pop(context);
                       }
                     }),
               ]),
             );
           } else {
+            /* to wait for the loading od data, or in case of error,
+            loading spinner will show
+             */
             return Loading();
           }
         });
