@@ -73,7 +73,10 @@ class _HomePageState extends State<HomePage> {
         body: SingleChildScrollView(
           child: Column(
             children: [
+              // the container that show agent id card
               Container(
+                child: Image.asset('assets/id_berthier.png',
+                    width: 600, height: 240, fit: BoxFit.cover),
                 margin: const EdgeInsets.fromLTRB(20, 25, 20, 10),
                 decoration: const BoxDecoration(
                   color: Colors.white,
@@ -89,8 +92,26 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 padding: const EdgeInsets.fromLTRB(25, 10, 25, 10),
-                child: createTable(),
               ),
+
+              // the Container that show the table of all tools available
+              Container(
+                  margin: const EdgeInsets.fromLTRB(20, 25, 20, 10),
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: dGreen,
+                        blurRadius: 4,
+                        offset: Offset(0, 4),
+                      )
+                    ],
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(25),
+                    ),
+                  ),
+                  padding: const EdgeInsets.fromLTRB(25, 10, 25, 10),
+                  child: createTable()),
               ElevatedButton(
                   onPressed: () {
                     Navigator.push(
