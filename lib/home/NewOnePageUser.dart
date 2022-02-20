@@ -1,8 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
-class MyApp extends StatelessWidget {
+class NewOneUserPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,15 +24,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  bool _hasBeenPressed = false;
-  bool _hasBeenPressed1 = false;
-  bool _hasBeenPressed2 = false;
-  bool _hasBeenPressed3 = false;
-  bool _hasBeenPressed4 = false;
-  bool _hasBeenPressed5 = false;
-  bool _hasBeenPressed6 = false;
-  bool _hasBeenPressed7 = false;
-  bool _hasBeenPressed8 = false;
+  bool _snaphookHasBeenPressed = false;
+  bool _ropeHasBeenPressed = false;
+  bool _knifeHasBeenPressed = false;
+  bool _batonHasBeenPressed = false;
+  bool _flashlightHasBeenPressed = false;
+  bool _teargazHasBeenPressed = false;
+  bool _peppersprayHasBeenPressed = false;
+  bool _keysHasBeenPressed = false;
+  bool _medicalkitHasBeenPressed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -56,12 +54,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: new Text('Snap Hook'),
                     textColor: Colors.white,
                     // 2
-                    color: _hasBeenPressed ? Colors.teal : Colors.red,
+                    color: _snaphookHasBeenPressed ? Colors.teal : Colors.red,
                     // 3
 
                     onPressed: () => {
                       setState(() {
-                        _hasBeenPressed = !_hasBeenPressed;
+                        _snaphookHasBeenPressed = !_snaphookHasBeenPressed;
                       })
                     },
                   ),
@@ -69,11 +67,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: new Text('rope'),
                     textColor: Colors.white,
                     // 2
-                    color: _hasBeenPressed1 ? Colors.teal : Colors.red,
+                    color: _ropeHasBeenPressed ? Colors.teal : Colors.red,
                     // 3
                     onPressed: () => {
                       setState(() {
-                        _hasBeenPressed1 = !_hasBeenPressed1;
+                        _ropeHasBeenPressed = !_ropeHasBeenPressed;
                       })
                     },
                   ),
@@ -81,11 +79,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: new Text('knife'),
                     textColor: Colors.white,
                     // 2
-                    color: _hasBeenPressed2 ? Colors.teal : Colors.red,
+                    color: _knifeHasBeenPressed ? Colors.teal : Colors.red,
                     // 3
                     onPressed: () => {
                       setState(() {
-                        _hasBeenPressed2 = !_hasBeenPressed2;
+                        _knifeHasBeenPressed = !_knifeHasBeenPressed;
                       })
                     },
                   ),
@@ -93,11 +91,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: new Text('baton'),
                     textColor: Colors.white,
                     // 2
-                    color: _hasBeenPressed3 ? Colors.teal : Colors.red,
+                    color: _batonHasBeenPressed ? Colors.teal : Colors.red,
                     // 3
                     onPressed: () => {
                       setState(() {
-                        _hasBeenPressed3 = !_hasBeenPressed3;
+                        _batonHasBeenPressed = !_batonHasBeenPressed;
                       })
                     },
                   ),
@@ -105,11 +103,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: new Text('flashlight'),
                     textColor: Colors.white,
                     // 2
-                    color: _hasBeenPressed4 ? Colors.teal : Colors.red,
+                    color: _flashlightHasBeenPressed ? Colors.teal : Colors.red,
                     // 3
                     onPressed: () => {
                       setState(() {
-                        _hasBeenPressed4 = !_hasBeenPressed4;
+                        _flashlightHasBeenPressed = !_flashlightHasBeenPressed;
                       })
                     },
                   ),
@@ -117,11 +115,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: new Text('tearGaz'),
                     textColor: Colors.white,
                     // 2
-                    color: _hasBeenPressed5 ? Colors.teal : Colors.red,
+                    color: _teargazHasBeenPressed ? Colors.teal : Colors.red,
                     // 3
                     onPressed: () => {
                       setState(() {
-                        _hasBeenPressed5 = !_hasBeenPressed5;
+                        _teargazHasBeenPressed = !_teargazHasBeenPressed;
                       })
                     },
                   ),
@@ -129,11 +127,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: new Text('pepperSpray'),
                     textColor: Colors.white,
                     // 2
-                    color: _hasBeenPressed6 ? Colors.teal : Colors.red,
+                    color:
+                        _peppersprayHasBeenPressed ? Colors.teal : Colors.red,
                     // 3
                     onPressed: () => {
                       setState(() {
-                        _hasBeenPressed6 = !_hasBeenPressed6;
+                        _peppersprayHasBeenPressed =
+                            !_peppersprayHasBeenPressed;
                       })
                     },
                   ),
@@ -141,11 +141,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: new Text('keys'),
                     textColor: Colors.white,
                     // 2
-                    color: _hasBeenPressed7 ? Colors.teal : Colors.red,
+                    color: _keysHasBeenPressed ? Colors.teal : Colors.red,
                     // 3
                     onPressed: () => {
                       setState(() {
-                        _hasBeenPressed7 = !_hasBeenPressed7;
+                        _keysHasBeenPressed = !_keysHasBeenPressed;
                       })
                     },
                   ),
@@ -153,11 +153,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: new Text('medical Kit'),
                     textColor: Colors.white,
                     // 2
-                    color: _hasBeenPressed8 ? Colors.teal : Colors.red,
+                    color: _medicalkitHasBeenPressed ? Colors.teal : Colors.red,
                     // 3
                     onPressed: () => {
                       setState(() {
-                        _hasBeenPressed8 = !_hasBeenPressed8;
+                        _medicalkitHasBeenPressed = !_medicalkitHasBeenPressed;
                       })
                     },
                   ),
