@@ -95,8 +95,8 @@ class HomePageUser extends StatelessWidget {
 }
 
 Widget createTable() {
-  return MaterialKit();
-  /*List<TableRow> rows = [];
+  //return MaterialKit();
+  List<TableRow> rows = [];
   for (int i = 0; i < lenDataUser; ++i) {
     if (i == 0) {
       rows.add(TableRow(children: [
@@ -278,8 +278,8 @@ Widget createTable() {
           ),
         ),
       ]));
-    }}
+    }
+  }
 
-
-  return Table(children: rows);*/
+  return Table(children: rows);
 }
