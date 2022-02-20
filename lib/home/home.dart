@@ -33,7 +33,7 @@ class Home extends StatelessWidget {
           backgroundColor: Colors.brown[50],
           appBar: AppBar(
             title: Text('Go Securi Home'),
-            backgroundColor: Colors.brown[400],
+            backgroundColor: Colors.teal,
             elevation: 0.0,
             actions: <Widget>[
               TextButton.icon(

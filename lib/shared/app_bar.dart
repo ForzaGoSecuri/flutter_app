@@ -8,7 +8,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
         title: Text('Go Securi Home'),
-        backgroundColor: Colors.brown[400],
+        backgroundColor: Colors.teal,
         elevation: 0.0,
         actions: <Widget>[
           TextButton.icon(

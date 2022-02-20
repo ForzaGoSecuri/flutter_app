@@ -48,12 +48,19 @@ class OneUserPage extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'forza gosecuri',
-      home: HomePageUser(),
+      home: HomePage(),
     );
   }
 }
 
-class HomePageUser extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,7 +102,7 @@ class HomePageUser extends StatelessWidget {
 }
 
 Widget createTable() {
-  //return MaterialKit();
+  Color _colorContainer = Colors.teal;
   List<TableRow> rows = [];
   for (int i = 0; i < lenDataUser; ++i) {
     if (i == 0) {
@@ -118,11 +125,14 @@ Widget createTable() {
           child: Text('snapHook'),
           style: OutlinedButton.styleFrom(
             primary: Colors.white,
-            backgroundColor: Colors.teal,
+            backgroundColor: _colorContainer,
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10))),
           ),
           onPressed: () {
+            /*setState(() {
+              _colorContainer = Colors.red;
+            });*/
             print('snapHook');
           },
         ),
@@ -135,7 +145,7 @@ Widget createTable() {
             child: Text('rope'),
             style: OutlinedButton.styleFrom(
               primary: Colors.white,
-              backgroundColor: Colors.teal,
+              backgroundColor: _colorContainer,
               shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10))),
             ),
