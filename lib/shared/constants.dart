@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:forza_go_securi/home/OneUserPage.dart';
 
-/*
-styling constants to clear input text decorations
- */
-
+// Container color
 Color colorContainer = Colors.teal;
 
+//styling constants to clear input text decorations
 const textInputDecoration = InputDecoration(
   fillColor: Colors.white,
   filled: true,
@@ -18,6 +16,7 @@ const textInputDecoration = InputDecoration(
   ),
 );
 
+// style applied to Containers on the AllUsersPage
 const containerDecoration = BoxDecoration(
   color: Colors.white,
   boxShadow: [
@@ -32,9 +31,13 @@ const containerDecoration = BoxDecoration(
   ),
 );
 
+//the style of buttons in the table of users
 dynamic buttonTableStyle = OutlinedButton.styleFrom(
   primary: Colors.white,
   backgroundColor: colorContainer,
   shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(10))),
 );
+
+// adding some space and social distanciation around elements like Containers
+const theSpace = EdgeInsets.fromLTRB(20, 25, 20, 10);

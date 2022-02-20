@@ -76,18 +76,18 @@ class _HomePageState extends State<HomePage> {
             children: [
               // the container that show agent id card
               Container(
+                decoration: containerDecoration,
                 child: Image.asset('assets/id_berthier.png',
                     width: 600, height: 240, fit: BoxFit.cover),
-                margin: const EdgeInsets.fromLTRB(20, 25, 20, 10),
-                decoration: containerDecoration,
-                padding: const EdgeInsets.fromLTRB(25, 10, 25, 10),
+                margin: theSpace,
+                padding: theSpace,
               ),
 
               // the Container that show the table of all tools available
               Container(
-                  margin: const EdgeInsets.fromLTRB(20, 25, 20, 10),
                   decoration: containerDecoration,
-                  padding: const EdgeInsets.fromLTRB(25, 10, 25, 10),
+                  margin: theSpace,
+                  padding: theSpace,
                   child: createTable()),
               ElevatedButton(
                   onPressed: () {
