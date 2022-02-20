@@ -3,6 +3,7 @@
 import 'package:forza_go_securi/home/AllUserPage.dart';
 import 'package:flutter/material.dart';
 import 'package:forza_go_securi/shared/app_bar.dart';
+import 'package:forza_go_securi/shared/constants.dart';
 
 /*
 Detailed view page of a user. The page show the name, id card, and list of
@@ -78,38 +79,14 @@ class _HomePageState extends State<HomePage> {
                 child: Image.asset('assets/id_berthier.png',
                     width: 600, height: 240, fit: BoxFit.cover),
                 margin: const EdgeInsets.fromLTRB(20, 25, 20, 10),
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: dGreen,
-                      blurRadius: 4,
-                      offset: Offset(0, 4),
-                    )
-                  ],
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(25),
-                  ),
-                ),
+                decoration: containerDecoration,
                 padding: const EdgeInsets.fromLTRB(25, 10, 25, 10),
               ),
 
               // the Container that show the table of all tools available
               Container(
                   margin: const EdgeInsets.fromLTRB(20, 25, 20, 10),
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: dGreen,
-                        blurRadius: 4,
-                        offset: Offset(0, 4),
-                      )
-                    ],
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(25),
-                    ),
-                  ),
+                  decoration: containerDecoration,
                   padding: const EdgeInsets.fromLTRB(25, 10, 25, 10),
                   child: createTable()),
               ElevatedButton(
@@ -126,20 +103,15 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+// TODO : fix the setState
 Widget createTable() {
-  Color _colorContainer = Colors.teal;
   List<TableRow> rows = [];
   for (int i = 0; i < lenDataUser; ++i) {
     if (i == 0) {
       rows.add(TableRow(children: [
         OutlinedButton(
           child: Text('Material of one user'),
-          style: OutlinedButton.styleFrom(
-            primary: Colors.teal,
-            backgroundColor: Colors.white,
-            shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10))),
-          ),
+          style: buttonTableStyle,
           onPressed: null,
         ),
       ]));
@@ -148,15 +120,10 @@ Widget createTable() {
       rows.add(TableRow(children: [
         OutlinedButton(
           child: Text('snapHook'),
-          style: OutlinedButton.styleFrom(
-            primary: Colors.white,
-            backgroundColor: _colorContainer,
-            shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10))),
-          ),
+          style: buttonTableStyle,
           onPressed: () {
             /*setState(() {
-              _colorContainer = Colors.red;
+              colorContainer = Colors.red;
             });*/
             print('snapHook');
           },
@@ -168,12 +135,7 @@ Widget createTable() {
         Container(
           child: OutlinedButton(
             child: Text('rope'),
-            style: OutlinedButton.styleFrom(
-              primary: Colors.white,
-              backgroundColor: _colorContainer,
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
-            ),
+            style: buttonTableStyle,
             onPressed: () {
               print('rope');
             },
@@ -186,12 +148,7 @@ Widget createTable() {
         Container(
           child: OutlinedButton(
             child: Text('knife'),
-            style: OutlinedButton.styleFrom(
-              primary: Colors.white,
-              backgroundColor: Colors.teal,
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
-            ),
+            style: buttonTableStyle,
             onPressed: () {
               print('knife');
             },
@@ -204,12 +161,7 @@ Widget createTable() {
         Container(
           child: OutlinedButton(
             child: Text('baton'),
-            style: OutlinedButton.styleFrom(
-              primary: Colors.white,
-              backgroundColor: Colors.teal,
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
-            ),
+            style: buttonTableStyle,
             onPressed: () {
               print('baton');
             },
@@ -222,12 +174,7 @@ Widget createTable() {
         Container(
           child: OutlinedButton(
             child: Text('flashlight'),
-            style: OutlinedButton.styleFrom(
-              primary: Colors.white,
-              backgroundColor: Colors.teal,
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
-            ),
+            style: buttonTableStyle,
             onPressed: () {
               print('flashlight');
             },
@@ -240,12 +187,7 @@ Widget createTable() {
         Container(
           child: OutlinedButton(
             child: Text('tearGas'),
-            style: OutlinedButton.styleFrom(
-              primary: Colors.white,
-              backgroundColor: Colors.teal,
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
-            ),
+            style: buttonTableStyle,
             onPressed: () {
               print('tearGas');
             },
@@ -258,12 +200,7 @@ Widget createTable() {
         Container(
           child: OutlinedButton(
             child: Text('pepperSpray'),
-            style: OutlinedButton.styleFrom(
-              primary: Colors.white,
-              backgroundColor: Colors.teal,
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
-            ),
+            style: buttonTableStyle,
             onPressed: () {
               print('pepperSpray');
             },
@@ -276,12 +213,7 @@ Widget createTable() {
         Container(
           child: OutlinedButton(
             child: Text('keys'),
-            style: OutlinedButton.styleFrom(
-              primary: Colors.white,
-              backgroundColor: Colors.teal,
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
-            ),
+            style: buttonTableStyle,
             onPressed: () {
               print('keys');
             },
@@ -294,12 +226,7 @@ Widget createTable() {
         Container(
           child: OutlinedButton(
             child: Text('Medical kit'),
-            style: OutlinedButton.styleFrom(
-              primary: Colors.white,
-              backgroundColor: backColorNOK,
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
-            ),
+            style: buttonTableStyle,
             onPressed: () {
               OutlinedButton.styleFrom(
                 primary: Colors.white,
