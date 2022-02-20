@@ -2,7 +2,7 @@
 
 import 'package:forza_go_securi/home/OneUserPage.dart';
 import 'package:flutter/material.dart';
-//import 'package:google_fonts/google_fonts.dart';
+import 'package:forza_go_securi/shared/app_bar.dart';
 
 const dGreen = Color(0xFF54D3C2);
 var numberOfEmployees = 10;
@@ -69,64 +69,9 @@ class HomePageUsers extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(25, 10, 25, 10),
                 child: createTable(context),
               ),
-
-              //  SearchSection(),
-              // createTable()
             ],
           ),
         ));
-  }
-}
-
-class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
-  @override
-  Size get preferredSize => const Size.fromHeight(50);
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      title: Text(
-        'List of security employees',
-        /*style: GoogleFonts.nunito(
-          color: Colors.lightBlueAccent,
-          fontSize: 22,
-        ),*/
-      ),
-      actions: const [
-        IconButton(
-          icon: Icon(
-            Icons.add_call,
-            color: Colors.amber,
-            size: 20,
-          ),
-          onPressed: null,
-        )
-      ],
-      centerTitle: false,
-      backgroundColor: Colors.white,
-    );
-  }
-}
-
-class SearchSection extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 1500,
-      color: dGreen,
-      padding: const EdgeInsets.fromLTRB(10, 25, 10, 10),
-      child: Column(
-        children: [
-          Container(
-            height: 100,
-            color: Colors.black,
-          ),
-          Container(
-            height: 100,
-            color: Colors.red,
-          ),
-        ],
-      ),
-    );
   }
 }
 

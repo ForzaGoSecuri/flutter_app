@@ -2,10 +2,8 @@
 
 import 'package:forza_go_securi/home/AllUserPage.dart';
 import 'package:flutter/material.dart';
-import 'package:forza_go_securi/home/home.dart';
 import 'package:forza_go_securi/home/materials_kit.dart';
-//import 'package:google_fonts/google_fonts.dart';
-import 'package:forza_go_securi/services/auth.dart';
+import 'package:forza_go_securi/shared/app_bar.dart';
 
 var backColorNOK = Colors.red;
 var backColorOK = Colors.teal;
@@ -60,57 +58,10 @@ class HomePageUser extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: dGreen,
-        appBar: AppBar(
-            title: Text('Go Securi Home'),
-            backgroundColor: Colors.brown[400],
-            elevation: 0.0,
-            actions: <Widget>[
-              TextButton.icon(
-                label: Text('Home'),
-                icon: Icon(Icons.home),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Home()),
-                  );
-                },
-              ),
-            ]),
+        appBar: MyAppBar(),
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                child: Row(
-                    //children: [
-                    /*Container(
-                      // alignment: Alignment.center,
-                      child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => Home()),
-                            );
-                          },
-                          child: Text('Accueil')),
-                    ),*/
-                    /*Container(
-                      decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(18),
-                        ),
-                        image: DecorationImage(
-                          image: AssetImage(
-                            'images/chambre.jpg',
-                          ),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),*/
-                    //],
-                    ),
-                height: 140,
-              ),
               Container(
                 margin: const EdgeInsets.fromLTRB(20, 25, 20, 10),
                 decoration: const BoxDecoration(
@@ -142,47 +93,6 @@ class HomePageUser extends StatelessWidget {
         ));
   }
 }
-
-/*class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
-  @override
-  Size get preferredSize => const Size.fromHeight(50);
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.brown[50],
-      appBar: AppBar(
-        title: Text('Go Securi Home'),
-        backgroundColor: Colors.brown[400],
-        elevation: 0.0,
-      ),
-    );
-  }
-}*/
-/*
-
-class SearchSection extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 1500,
-      color: dGreen,
-      padding: const EdgeInsets.fromLTRB(4, 25, 4, 10),
-      child: Column(
-        children: [
-          Container(
-            height: 100,
-            color: Colors.black,
-          ),
-          Container(
-            height: 100,
-            color: Colors.red,
-          ),
-        ],
-      ),
-    );
-  }
-}
-*/
 
 Widget createTable() {
   return MaterialKit();
