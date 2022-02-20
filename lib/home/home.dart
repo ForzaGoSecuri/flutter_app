@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 import 'package:forza_go_securi/home/settings_form.dart';
@@ -7,10 +7,10 @@ import 'package:forza_go_securi/services/auth.dart';
 import 'package:forza_go_securi/services/database.dart';
 import 'package:provider/provider.dart';
 import 'package:forza_go_securi/home/equipment_list.dart';
-import 'package:forza_go_securi/home/AllUserPage.dart';
-import 'package:forza_go_securi/home/OneUserPage.dart';
 
-/* */
+/* Home sweet home, this is where user will see the other users presentation
+cards, and could activate the settings panel, in order to update their data
+*/
 
 class Home extends StatelessWidget {
   final AuthService _auth = AuthService();
