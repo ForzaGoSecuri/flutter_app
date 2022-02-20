@@ -11,7 +11,7 @@ available tools a user can have
 
 var backColorNOK = Colors.red;
 var backColorOK = Colors.teal;
-var lenDataUser = 10;
+dynamic lenDataUser;
 
 const dGreen = Color(0xFF54D3C2);
 const numberOfObject = 10;

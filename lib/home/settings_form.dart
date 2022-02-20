@@ -10,10 +10,12 @@ import 'package:provider/provider.dart';
 /* Form used to update user name and equipment.
 A first text input allow to update the username,
 an second field is a drop down list with all equipments available,
-when a user select an item in the list, it will update their personnal equipment
+when a user select an item in the list, it will update their personal equipment
  */
 
 class SettingsForm extends StatefulWidget {
+  const SettingsForm({Key? key}) : super(key: key);
+
   @override
   _State createState() => _State();
 }

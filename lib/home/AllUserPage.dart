@@ -4,19 +4,17 @@ import 'package:forza_go_securi/home/OneUserPage.dart';
 import 'package:flutter/material.dart';
 import 'package:forza_go_securi/shared/app_bar.dart';
 
-/* Page that hsow all users registered and their detailed data */
+/* Page that show all users registered and their detailed data */
 
 const dGreen = Color(0xFF54D3C2);
-var numberOfEmployees = 10;
+dynamic numberOfEmployees;
 
 class Employee {
   int iD = 0;
   String name = "";
   String surname = "";
   String nationality = "";
-  String dateOfBirth = "";
   String gender = "";
-  String localisation = "";
 
   Map<String, dynamic> get employees {
     return {
@@ -24,9 +22,7 @@ class Employee {
       "name": name,
       "surname": surname,
       "nationality": nationality,
-      "dateOfBirth": dateOfBirth,
       "gender": gender,
-      "localisation": localisation,
     };
   }
 }
@@ -56,21 +52,14 @@ class HomePageUsers extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                margin: const EdgeInsets.fromLTRB(10, 25, 10, 10),
-                decoration: const BoxDecoration(
+                margin: EdgeInsets.fromLTRB(10, 25, 10, 10),
+                decoration: BoxDecoration(
                   color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: dGreen,
-                      blurRadius: 4,
-                      offset: Offset(0, 4),
-                    )
-                  ],
                   borderRadius: BorderRadius.all(
                     Radius.circular(25),
                   ),
                 ),
-                padding: const EdgeInsets.fromLTRB(25, 10, 25, 10),
+                padding: EdgeInsets.all(5.0),
                 child: createTable(context),
               ),
             ],
@@ -80,7 +69,7 @@ class HomePageUsers extends StatelessWidget {
 }
 
 // Table with each registered user and their data
-
+// TODO : add method to get user data from database to fill the table
 Widget createTable(context) {
   List<TableRow> rows = [];
   var employees = Employee();
@@ -90,9 +79,7 @@ Widget createTable(context) {
         Text("name "),
         Text("surname "),
         Text("nationality"),
-        Text("date of birth"),
         Text("gender"),
-        Text("localisation"),
         Text("select user"),
       ]));
     }
@@ -101,9 +88,7 @@ Widget createTable(context) {
         Text(employees.name),
         Text(employees.surname),
         Text(employees.nationality),
-        Text(employees.dateOfBirth),
         Text(employees.gender),
-        Text(employees.localisation),
         ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
