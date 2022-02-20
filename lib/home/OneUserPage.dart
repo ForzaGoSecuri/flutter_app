@@ -14,7 +14,7 @@ var backColorOK = Colors.teal;
 dynamic lenDataUser;
 
 const dGreen = Color(0xFF54D3C2);
-const numberOfObject = 10;
+dynamic numberOfObject;
 
 class Material {
   int iD = 0;
