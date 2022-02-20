@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:forza_go_securi/home/home.dart';
 
-
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(50);
