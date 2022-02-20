@@ -1,14 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:forza_go_securi/screens/wrapper.dart';
 import 'package:forza_go_securi/services/auth.dart';
-import 'package:http/http.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'models/utilisateur.dart';
 
 void main() async {

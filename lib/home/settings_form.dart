@@ -14,12 +14,11 @@ class SettingsForm extends StatefulWidget {
 
 class _State extends State<SettingsForm> {
   final _formKey = GlobalKey<FormState>();
-  final List<String> sugars = ['0', '1', '2', '3', '4'];
+  final List<String> tools = ['0', '1', '2', '3', '4'];
 
   // form values
   late String _currentName;
-  late String _currentSugars;
-  int? _currentStrength;
+  late String _currentTools;
 
   @override
   Widget build(BuildContext context) {
@@ -50,17 +49,17 @@ class _State extends State<SettingsForm> {
                 //dropdown
                 DropdownButtonFormField<String>(
                   decoration: textInputDecoration,
-                  value: userData.sugars,
-                  items: sugars.map((sugar) {
+                  value: userData.usertools,
+                  items: tools.map((tools) {
                     return DropdownMenuItem(
-                      value: sugar,
-                      child: Text('$sugar sugars'),
+                      value: tools,
+                      child: Text('add $tools in the equipment'),
                     );
                   }).toList(),
-                  onChanged: (val) => setState(() => _currentSugars = val!),
+                  onChanged: (val) => setState(() => _currentTools = val!),
                 ),
                 //slider
-                Slider(
+                /* Slider(
                   value: (_currentStrength ?? userData.strength).toDouble(),
                   activeColor:
                       Colors.brown[_currentStrength ?? userData.strength],
@@ -71,7 +70,7 @@ class _State extends State<SettingsForm> {
                   divisions: 8,
                   onChanged: (val) =>
                       setState(() => _currentStrength = val.round()),
-                ),
+                ),*/
                 ElevatedButton(
                     child: Text(
                       'Update',
@@ -80,9 +79,8 @@ class _State extends State<SettingsForm> {
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
                         await DatabaseService(uid: user.uid).updateUserData(
-                            _currentSugars,
-                            _currentName,
-                            _currentStrength ?? userData.strength);
+                            _currentTools,
+                            _currentName);
                         Navigator.pop(context);
                       }
                     }),

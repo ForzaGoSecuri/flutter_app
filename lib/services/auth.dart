@@ -13,19 +13,6 @@ class AuthService {
   // auth change user stream
   Stream<Utilisateur?> get user {
     return _auth.authStateChanges().map(_userFromFirebaseUser);
-    //.map((User? user) => _userFromFirebaseUser(user));
-  }
-
-  // sign in anonymously
-  Future signInAnon() async {
-    try {
-      UserCredential result = await _auth.signInAnonymously();
-      User? user = result.user;
-      return _userFromFirebaseUser(user!);
-    } catch (e) {
-      print(e.toString());
-      return null;
-    }
   }
 
   // sign in with email & password
@@ -50,7 +37,7 @@ class AuthService {
 
       // create a new document for the user with the uid
       await DatabaseService(uid: user!.uid)
-          .updateUserData('0', 'New crew member', 100);
+          .updateUserData('0', 'New crew member');
       return _userFromFirebaseUser(user);
     } catch (e) {
       print(e.toString());

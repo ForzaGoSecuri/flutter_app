@@ -1,27 +1,26 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:forza_go_securi/models/brew.dart';
+import 'package:forza_go_securi/models/equipment.dart';
 import 'package:forza_go_securi/models/utilisateur.dart';
 
 class DatabaseService {
   final String? uid;
   DatabaseService({this.uid});
   // collection reference
-  final CollectionReference brewCollection =
-      FirebaseFirestore.instance.collection('brews');
+  final CollectionReference toolCollection =
+      FirebaseFirestore.instance.collection('tools');
 
-  Future updateUserData(String sugars, String name, int strength) async {
-    return await brewCollection
+  Future updateUserData(String userTools, String name) async {
+    return await toolCollection
         .doc(uid)
-        .set({'sugars': sugars, 'name': name, 'strength': strength});
+        .set({'tools': userTools, 'name': name});
   }
 
   // brew list from snapshot
-  List<Brew> _brewListFromSnapshot(QuerySnapshot snapshot) {
+  List<Equipment> _toolListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
-      return Brew(
+      return Equipment(
           name: doc.get('name') ?? '',
-          strength: doc.get('strength') ?? 0,
-          sugars: doc.get('sugars') ?? '0');
+          tools: doc.get('tools') ?? '0');
     }).toList();
   }
 
@@ -30,17 +29,16 @@ class DatabaseService {
     return UserData(
         uid: uid ?? '',
         name: snapshot.get('name') ?? '',
-        sugars: snapshot.get('sugars') ?? '0',
-        strength: snapshot.get('strength') ?? 100);
+        usertools: snapshot.get('tools') ?? '0');
   }
 
   // get brews stream
-  Stream<List<Brew>> get brews {
-    return brewCollection.snapshots().map(_brewListFromSnapshot);
+  Stream<List<Equipment>> get brews {
+    return toolCollection.snapshots().map(_toolListFromSnapshot);
   }
 
   // get user doc stream
   Stream<UserData> get userData {
-    return brewCollection.doc(uid).snapshots().map(_userDataFromSnapshot);
+    return toolCollection.doc(uid).snapshots().map(_userDataFromSnapshot);
   }
 }

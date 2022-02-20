@@ -6,8 +6,6 @@ import 'package:forza_go_securi/shared/constants.dart';
 import 'package:forza_go_securi/shared/loading.dart';
 
 class Register extends StatefulWidget {
-  //const Register({Key? key}) : super(key: key);
-
   final Function toggleView;
   Register({required this.toggleView});
 
